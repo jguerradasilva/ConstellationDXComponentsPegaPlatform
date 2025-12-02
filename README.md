@@ -9,41 +9,41 @@
 [![TypeScript](https://img.shields.io/badge/TypeScript-5.3.3-3178C6?style=flat-square&logo=typescript)](https://www.typescriptlang.org/)
 [![Styled Components](https://img.shields.io/badge/Styled_Components-5.3.11-DB7093?style=flat-square&logo=styled-components)](https://styled-components.com/)
 
-*Repositório de componentes customizados desenvolvidos para Pega Constellation DX Platform*
+*Custom components repository developed for Pega Constellation DX Platform*
 
-[Sobre](#-sobre) • 
-[Componentes](#-componentes-disponíveis) • 
-[Instalação](#-instalação-e-configuração) • 
-[Desenvolvimento](#-desenvolvimento) • 
-[Documentação](#-documentação)
+[About](#-about) • 
+[Components](#-available-components) • 
+[Installation](#-installation-and-setup) • 
+[Development](#-development) • 
+[Documentation](#-documentation)
 
 </div>
 
 ---
 
-## 📖 Sobre
+## 📖 About
 
-Este repositório contém uma coleção de **componentes customizados** desenvolvidos para o **Pega Constellation DX Component Builder**. O objetivo é expandir as capacidades nativas da plataforma Pega, oferecendo componentes visuais e funcionais que podem ser reutilizados em diferentes aplicações.
+This repository contains a collection of **custom components** developed for **Pega Constellation DX Component Builder**. The goal is to expand the native capabilities of the Pega platform, offering visual and functional components that can be reused across different applications.
 
-### 🎯 Objetivos do Projeto
+### 🎯 Project Goals
 
-- 🔧 **Extensibilidade**: Criar componentes que não existem nativamente no Pega
-- 🎨 **Customização**: Oferecer alta personalização através de propriedades configuráveis
-- 📦 **Reusabilidade**: Componentes modulares prontos para uso em qualquer aplicação Pega
-- 🚀 **Performance**: Código otimizado e seguindo as melhores práticas
-- 📱 **Responsividade**: Design adaptável para diferentes dispositivos
+- 🔧 **Extensibility**: Create components that don't exist natively in Pega
+- 🎨 **Customization**: Offer high customization through configurable properties
+- 📦 **Reusability**: Modular components ready for use in any Pega application
+- 🚀 **Performance**: Optimized code following best practices
+- 📱 **Responsiveness**: Adaptive design for different devices
 
-### 💼 Portfólio
+### 💼 Portfolio
 
-Este projeto serve como portfólio profissional demonstrando capacidades em:
-- Desenvolvimento de componentes React/TypeScript
-- Integração com Pega Platform
-- Design de interfaces customizadas
-- Arquitetura de componentes reutilizáveis
+This project serves as a professional portfolio demonstrating expertise in:
+- React/TypeScript component development
+- Pega Platform integration
+- Custom interface design
+- Reusable component architecture
 
 ---
 
-## 🧩 Componentes Disponíveis
+## 🧩 Available Components
 
 ### 1. Digital Clock Widget
 
@@ -51,37 +51,37 @@ Este projeto serve como portfólio profissional demonstrando capacidades em:
   <img src="docs/digital-clock-demo.png" alt="Digital Clock Component" width="400"/>
 </div>
 
-Um relógio digital moderno e totalmente customizável que exibe hora e data em tempo real.
+A modern, fully customizable digital clock that displays time and date in real-time.
 
-**🎯 Especificações Técnicas:**
-- **Tipo**: Widget
-- **Biblioteca**: DXExtensions
+**🎯 Technical Specifications:**
+- **Type**: Widget
+- **Library**: DXExtensions
 - **Framework**: React 17 + TypeScript
-- **Atualização**: Real-time (1s interval)
+- **Update**: Real-time (1s interval)
 
-**✨ Características:**
-- ⏰ Atualização automática em tempo real
-- 🎨 Gradiente de cores totalmente customizável
-- 📅 Data por extenso em português (pt-BR)
-- 🔄 Suporte a formatos 12h e 24h
-- 📱 Design responsivo e compacto
-- ⚡ Performance otimizada com hooks React
+**✨ Features:**
+- ⏰ Automatic real-time updates
+- 🎨 Fully customizable color gradient
+- 📅 Full date display in Portuguese (pt-BR)
+- 🔄 Support for 12h and 24h formats
+- 📱 Responsive and compact design
+- ⚡ Optimized performance with React hooks
 
-**⚙️ Propriedades Configuráveis:**
+**⚙️ Configurable Properties:**
 
-| Propriedade | Tipo | Padrão | Descrição |
-|------------|------|--------|-----------|
-| `label` | Text | "Digital Clock" | Texto do label |
-| `format24Hour` | Boolean | `false` | Formato 12h ou 24h |
-| `showSeconds` | Boolean | `true` | Exibir segundos |
-| `showDate` | Boolean | `true` | Exibir data por extenso |
-| `backgroundColor1` | Text (Hex) | `#667eea` | Cor inicial do gradiente |
-| `backgroundColor2` | Text (Hex) | `#764ba2` | Cor final do gradiente |
-| `textColor` | Text (Hex) | `#ffffff` | Cor do texto |
+| Property | Type | Default | Description |
+|----------|------|---------|-------------|
+| `label` | Text | "Digital Clock" | Label text |
+| `format24Hour` | Boolean | `false` | 12h or 24h format |
+| `showSeconds` | Boolean | `true` | Show seconds |
+| `showDate` | Boolean | `true` | Show full date |
+| `backgroundColor1` | Text (Hex) | `#667eea` | Gradient start color |
+| `backgroundColor2` | Text (Hex) | `#764ba2` | Gradient end color |
+| `textColor` | Text (Hex) | `#ffffff` | Text color |
 
-**📝 Exemplo de Uso:**
+**📝 Usage Example:**
 ```javascript
-// Configuração no Pega Constellation
+// Pega Constellation configuration
 {
   "format24Hour": false,
   "showSeconds": true,
@@ -94,69 +94,69 @@ Um relógio digital moderno e totalmente customizável que exibe hora e data em 
 
 ---
 
-## 🚀 Instalação e Configuração
+## 🚀 Installation and Setup
 
-### ✅ Pré-requisitos
+### ✅ Prerequisites
 
-| Ferramenta | Versão Requerida | Recomendada |
+| Tool | Required Version | Recommended |
 |-----------|------------------|-------------|
 | Pega Infinity Server | 24.2+ | 24.2+ |
 | Node.js | 18 ou 20 | 20 |
 | npm | 8 ou 10 | 10 |
 | Git | 2.30+ | Latest |
 
-> ⚠️ **Importante**: npm versão 9 não é suportada
+> ⚠️ **Important**: npm version 9 is not supported
 
-### 📁 Estrutura do Projeto
+### 📁 Project Structure
 
 ```bash
 ConstellationDXComponentsPegaPlatform/
 │
-├── 📂 sldxcomponents/              # Diretório principal
+├── 📂 sldxcomponents/              # Main directory
 │   ├── 📂 src/
-│   │   └── 📂 components/          # Componentes customizados
+│   │   └── 📂 components/          # Custom components
 │   │       ├── Sl_DXExtensions_DigitalClock/
-│   │       │   ├── index.tsx       # Componente React
-│   │       │   ├── config.json     # Configuração Pega
+│   │       │   ├── index.tsx       # React component
+│   │       │   ├── config.json     # Pega configuration
 │   │       │   ├── styles.ts       # Styled Components
-│   │       │   ├── mock.ts         # Dados de teste
+│   │       │   ├── mock.ts         # Test data
 │   │       │   └── demo.stories.tsx
 │   │       └── _components.md
 │   │
-│   ├── 📂 keys/                    # Certificados SSL
+│   ├── 📂 keys/                    # SSL certificates
 │   │   ├── dxcb.crt
 │   │   └── dxcb.key
 │   │
-│   ├── 📂 .storybook/              # Configuração Storybook
-│   ├── 📄 package.json             # Dependências
-│   ├── 📄 tasks.config.json        # Configuração servidor Pega
-│   ├── 📄 build.config.json        # Configuração de build
-│   └── 📄 tsconfig.json            # Configuração TypeScript
+│   ├── 📂 .storybook/              # Storybook configuration
+│   ├── 📄 package.json             # Dependencies
+│   ├── 📄 tasks.config.json        # Pega server configuration
+│   ├── 📄 build.config.json        # Build configuration
+│   └── 📄 tsconfig.json            # TypeScript configuration
 │
-├── 📂 docs/                        # Documentação e assets
+├── 📂 docs/                        # Documentation and assets
 │   └── digital-clock-demo.png
 │
-└── 📄 README.md                    # Este arquivo
+└── 📄 README.md                    # This file
 ```
 
-### ⚙️ Configuração Inicial
+### ⚙️ Initial Setup
 
-#### 1️⃣ Clone o Repositório
+#### 1️⃣ Clone the Repository
 
 ```bash
 git clone https://github.com/jguerradasilva/ConstellationDXComponentsPegaPlatform.git
 cd ConstellationDXComponentsPegaPlatform/sldxcomponents
 ```
 
-#### 2️⃣ Instale as Dependências
+#### 2️⃣ Install Dependencies
 
 ```bash
 npm install
 ```
 
-#### 3️⃣ Configure o Servidor Pega
+#### 3️⃣ Configure Pega Server
 
-Edite o arquivo `tasks.config.json` com as configurações do seu ambiente:
+Edit the `tasks.config.json` file with your environment settings:
 
 ```json
 {
@@ -188,13 +188,13 @@ Edite o arquivo `tasks.config.json` com as configurações do seu ambiente:
 }
 ```
 
-#### 4️⃣ Configure os Certificados SSL
+#### 4️⃣ Configure SSL Certificates
 
-Coloque seus certificados SSL na pasta `keys/`:
-- `dxcb.crt` - Certificado SSL
-- `dxcb.key` - Chave privada SSL
+Place your SSL certificates in the `keys/` folder:
+- `dxcb.crt` - SSL Certificate
+- `dxcb.key` - SSL Private Key
 
-#### 5️⃣ Autentique com o Servidor Pega
+#### 5️⃣ Authenticate with Pega Server
 
 ```bash
 npm run authenticate
@@ -202,111 +202,111 @@ npm run authenticate
 
 ---
 
-## 💻 Desenvolvimento
+## 💻 Development
 
-### Comandos Disponíveis
+### Available Commands
 
-#### 🔐 Autenticação
+#### 🔐 Authentication
 ```bash
-npm run authenticate              # Autenticar com servidor Pega
+npm run authenticate              # Authenticate with Pega server
 ```
 
-#### 📦 Gerenciamento de Componentes
+#### 📦 Component Management
 ```bash
-npm run list                      # Listar componentes locais
-npm run create                    # Criar novo componente
-npm run createAll                 # Criar todos os componentes
-npm run rename                    # Renomear componente
-npm run delete                    # Deletar componente
-npm run deleteAll                 # Deletar todos os componentes
+npm run list                      # List local components
+npm run create                    # Create new component
+npm run createAll                 # Create all components
+npm run rename                    # Rename component
+npm run delete                    # Delete component
+npm run deleteAll                 # Delete all components
 ```
 
-#### 🔨 Build e Validação
+#### 🔨 Build and Validation
 ```bash
-npm run buildComponent            # Build de componente específico
-npm run buildAllComponents        # Build de todos os componentes
-npm run validate-schema           # Validar schema do componente
-npm run lint                      # Executar linter
+npm run buildComponent            # Build specific component
+npm run buildAllComponents        # Build all components
+npm run validate-schema           # Validate component schema
+npm run lint                      # Run linter
 ```
 
-#### 🚀 Publicação
+#### 🚀 Publishing
 ```bash
-npm run publish                   # Publicar componente no servidor Pega
-npm run publishAll                # Publicar todos os componentes
+npm run publish                   # Publish component to Pega server
+npm run publishAll                # Publish all components
 ```
 
 #### 📥 Import/Export
 ```bash
-npm run importComponent           # Importar componente do servidor
-npm run update                    # Atualizar componente existente
+npm run importComponent           # Import component from server
+npm run update                    # Update existing component
 ```
 
-#### 🎨 Desenvolvimento Visual
+#### 🎨 Visual Development
 ```bash
-npm run startStorybook            # Iniciar Storybook (porta 6040)
+npm run startStorybook            # Start Storybook (port 6040)
 ```
 
-### Workflow de Desenvolvimento
+### Development Workflow
 
 ```mermaid
 graph LR
-    A[Criar Componente] --> B[Desenvolver]
-    B --> C[Testar no Storybook]
+    A[Create Component] --> B[Develop]
+    B --> C[Test in Storybook]
     C --> D[Build]
-    D --> E[Validar]
-    E --> F[Publicar no Pega]
+    D --> E[Validate]
+    E --> F[Publish to Pega]
 ```
 
-1. **Criar**: `npm run create` - Gera estrutura base do componente
-2. **Desenvolver**: Implementar lógica e estilos
-3. **Testar**: `npm run startStorybook` - Visualizar componente
-4. **Build**: `npm run buildComponent` - Compilar componente
-5. **Validar**: `npm run validate-schema` - Validar configuração
-6. **Publicar**: `npm run publish` - Deploy no servidor Pega
+1. **Create**: `npm run create` - Generate component base structure
+2. **Develop**: Implement logic and styles
+3. **Test**: `npm run startStorybook` - Visualize component
+4. **Build**: `npm run buildComponent` - Compile component
+5. **Validate**: `npm run validate-schema` - Validate configuration
+6. **Publish**: `npm run publish` - Deploy to Pega server
 
-## 📝 Guia Completo: Criando Componentes do Zero
+## 📝 Complete Guide: Creating Components from Scratch
 
-### 🎯 Passo 1: Criando um Novo Projeto (Do Zero)
+### 🎯 Step 1: Creating a New Project (From Scratch)
 
-Se você está começando um projeto completamente novo, execute:
+If you're starting a completely new project, run:
 
 ```bash
-# Criar novo projeto DX Components
+# Create new DX Components project
 npx @pega/custom-dx-components@~24.2 init
 
-# Responda as perguntas:
-# - Project name: nome-do-seu-projeto
-# - Organization: SuaOrganizacao
-# - Description: Descrição do projeto
-# - Author: Seu Nome
+# Answer the questions:
+# - Project name: your-project-name
+# - Organization: YourOrganization
+# - Description: Project description
+# - Author: Your Name
 
-# Entre no diretório criado
-cd nome-do-seu-projeto
+# Enter the created directory
+cd your-project-name
 
-# Instale as dependências
+# Install dependencies
 npm install
 ```
 
-Isso criará toda a estrutura necessária para desenvolver componentes Pega Constellation.
+This will create all the necessary structure to develop Pega Constellation components.
 
-**OU** se você quer usar este repositório como base:
+**OR** if you want to use this repository as a base:
 
 ```bash
-# Clone o repositório
+# Clone the repository
 git clone https://github.com/jguerradasilva/ConstellationDXComponentsPegaPlatform.git
 cd ConstellationDXComponentsPegaPlatform/sldxcomponents
 
-# Instale as dependências
+# Install dependencies
 npm install
 ```
 
 ---
 
-### 🎯 Passo 2: Configuração do Ambiente
+### 🎯 Step 2: Environment Setup
 
-#### 2.1 Configure o tasks.config.json
+#### 2.1 Configure tasks.config.json
 
-Edite o arquivo `tasks.config.json` com as informações do seu servidor Pega:
+Edit the `tasks.config.json` file with your Pega server information:
 
 ```json
 {
@@ -326,13 +326,13 @@ Edite o arquivo `tasks.config.json` com as informações do seu servidor Pega:
 }
 ```
 
-#### 2.2 Configure Certificados SSL
+#### 2.2 Configure SSL Certificates
 
-Coloque seus certificados na pasta `keys/`:
-- `dxcb.crt` - Certificado SSL
-- `dxcb.key` - Chave privada
+Place your certificates in the `keys/` folder:
+- `dxcb.crt` - SSL Certificate
+- `dxcb.key` - Private Key
 
-#### 2.3 Autentique com o Servidor
+#### 2.3 Authenticate with Server
 
 ```bash
 npm run authenticate
@@ -340,45 +340,45 @@ npm run authenticate
 
 ---
 
-### 🛠️ Passo 3: Criando um Novo Componente
+### 🛠️ Step 3: Creating a New Component
 
-#### 3.1 Gerar Estrutura Base
+#### 3.1 Generate Base Structure
 
 ```bash
 npm run create
 ```
 
-Responda as perguntas:
-- **Component name**: `Sl_DXExtensions_MeuComponente`
-- **Type**: Escolha entre `Field`, `Widget`, ou `Template`
+Answer the questions:
+- **Component name**: `Sl_DXExtensions_MyComponent`
+- **Type**: Choose between `Field`, `Widget`, or `Template`
 - **Library**: `DXExtensions`
 
-#### 3.2 Estrutura de Arquivos Gerada
+#### 3.2 Generated File Structure
 
 ```
-src/components/Sl_DXExtensions_MeuComponente/
-├── index.tsx              # Componente React principal
-├── config.json            # Configuração Pega
-├── styles.ts              # Estilos (Styled Components)
-├── mock.ts                # Dados mock para testes
+src/components/Sl_DXExtensions_MyComponent/
+├── index.tsx              # Main React component
+├── config.json            # Pega configuration
+├── styles.ts              # Styles (Styled Components)
+├── mock.ts                # Mock data for tests
 ├── PConnProps.d.ts        # TypeScript definitions
-├── create-nonce.ts        # Segurança CSP
-└── demo.stories.tsx       # Storybook (opcional)
+├── create-nonce.ts        # CSP Security
+└── demo.stories.tsx       # Storybook (optional)
 ```
 
 ---
 
-### 📋 Passo 4: Configurando o Componente
+### 📋 Step 4: Configuring the Component
 
-#### 4.1 Edite o config.json
+#### 4.1 Edit config.json
 
-Defina as propriedades e metadados do componente:
+Define the component's properties and metadata:
 
 ```json
 {
-  "name": "Sl_DXExtensions_MeuComponente",
-  "label": "Meu Componente",
-  "description": "Descrição do que o componente faz",
+  "name": "Sl_DXExtensions_MyComponent",
+  "label": "My Component",
+  "description": "Description of what the component does",
   "organization": "Sl",
   "version": "1.0.0",
   "library": "DXExtensions",
@@ -388,49 +388,49 @@ Defina as propriedades e metadados do componente:
   "properties": [
     {
       "name": "title",
-      "label": "Título",
+      "label": "Title",
       "format": "TEXT",
-      "defaultValue": "Título Padrão"
+      "defaultValue": "Default Title"
     },
     {
       "name": "showDetails",
-      "label": "Mostrar Detalhes",
+      "label": "Show Details",
       "format": "BOOLEAN",
       "defaultValue": true
     },
     {
       "name": "backgroundColor",
-      "label": "Cor de Fundo",
+      "label": "Background Color",
       "format": "TEXT",
       "defaultValue": "#ffffff"
     },
     {
       "name": "visibility",
-      "label": "Visibilidade",
+      "label": "Visibility",
       "format": "VISIBILITY"
     }
   ],
   "defaultConfig": {
-    "title": "Título Padrão",
+    "title": "Default Title",
     "showDetails": true,
     "backgroundColor": "#ffffff"
   }
 }
 ```
 
-**Tipos de Propriedades:**
-- `TEXT` - Campo de texto
+**Property Types:**
+- `TEXT` - Text field
 - `BOOLEAN` - Checkbox true/false
-- `NUMBER` - Campo numérico
-- `SELECT` - Lista dropdown
-- `VISIBILITY` - Controle de visibilidade
-- `DISABLED` - Controle de habilitação
+- `NUMBER` - Numeric field
+- `SELECT` - Dropdown list
+- `VISIBILITY` - Visibility control
+- `DISABLED` - Enable/disable control
 
 ---
 
-### 💻 Passo 5: Implementando o Componente
+### 💻 Step 5: Implementing the Component
 
-#### 5.1 Edite o index.tsx
+#### 5.1 Edit index.tsx
 
 ```typescript
 import { useState, useEffect } from 'react';
@@ -439,18 +439,18 @@ import type { PConnProps } from './PConnProps';
 import './create-nonce';
 import StyledWrapper from './styles';
 
-// Interface das propriedades
-interface MeuComponenteProps extends PConnProps {
+// Properties interface
+interface MyComponentProps extends PConnProps {
   title?: string;
   showDetails?: boolean;
   backgroundColor?: string;
   testId?: string;
 }
 
-// Componente principal
-function MeuComponente(props: MeuComponenteProps) {
+// Main component
+function MyComponent(props: MyComponentProps) {
   const { 
-    title = 'Título Padrão',
+    title = 'Default Title',
     showDetails = true,
     backgroundColor = '#ffffff',
     testId 
@@ -459,12 +459,12 @@ function MeuComponente(props: MeuComponenteProps) {
   const [contador, setContador] = useState(0);
 
   useEffect(() => {
-    // Lógica de inicialização
-    console.log('Componente montado');
+    // Initialization logic
+    console.log('Component mounted');
     
     return () => {
       // Cleanup
-      console.log('Componente desmontado');
+      console.log('Component unmounted');
     };
   }, []);
 
@@ -480,18 +480,18 @@ function MeuComponente(props: MeuComponenteProps) {
       <h2>{title}</h2>
       {showDetails && (
         <div className="details">
-          <p>Contador: {contador}</p>
-          <button onClick={handleClick}>Incrementar</button>
+          <p>Counter: {contador}</p>
+          <button onClick={handleClick}>Increment</button>
         </div>
       )}
     </StyledWrapper>
   );
 }
 
-export default withConfiguration(MeuComponente);
+export default withConfiguration(MyComponent);
 ```
 
-#### 5.2 Edite o styles.ts
+#### 5.2 Edit styles.ts
 
 ```typescript
 import styled, { css } from 'styled-components';
@@ -541,70 +541,70 @@ export default styled.div<StyledProps>(({ $backgroundColor = '#ffffff' }) => {
 
 ---
 
-### 🧪 Passo 6: Testando o Componente
+### 🧪 Step 6: Testing the Component
 
-#### 6.1 Testar no Storybook
+#### 6.1 Test in Storybook
 
 ```bash
 npm run startStorybook
 ```
 
-Acesse: `http://localhost:6040`
+Access: `http://localhost:6040`
 
-#### 6.2 Validar Schema
+#### 6.2 Validate Schema
 
 ```bash
 npm run validate-schema
 ```
 
-#### 6.3 Build do Componente
+#### 6.3 Build Component
 
 ```bash
 npm run buildComponent
 ```
 
-Selecione o componente e escolha se quer build de desenvolvimento.
+Select the component and choose if you want a development build.
 
 ---
 
-### 🚀 Passo 7: Publicando no Pega
+### 🚀 Step 7: Publishing to Pega
 
-#### 7.1 Build Final
+#### 7.1 Final Build
 
 ```bash
 npm run buildComponent
-# Selecione seu componente
-# Escolha "No" para development build (para produção)
+# Select your component
+# Choose "No" for development build (for production)
 ```
 
-#### 7.2 Publicar
+#### 7.2 Publish
 
 ```bash
 npm run publish
-# Selecione o componente para publicar
+# Select the component to publish
 ```
 
-#### 7.3 Verificar no Pega
+#### 7.3 Verify in Pega
 
-1. Acesse o Pega Dev Studio
-2. Vá em **Configure** > **User Interface** > **Component**
-3. Procure por seu componente
-4. Use em qualquer View ou Screen Flow
+1. Access Pega Dev Studio
+2. Go to **Configure** > **User Interface** > **Component**
+3. Search for your component
+4. Use it in any View or Screen Flow
 
 ---
 
-### 🔧 Passo 8: Atualizando Componentes
+### 🔧 Step 8: Updating Components
 
-#### Atualizar Versão
+#### Update Version
 
 ```json
 // config.json
 {
-  "version": "1.1.0"  // Incrementar versão
+  "version": "1.1.0"  // Increment version
 }
 ```
 
-#### Rebuild e Republish
+#### Rebuild and Republish
 
 ```bash
 npm run buildComponent
@@ -613,64 +613,64 @@ npm run publish
 
 ---
 
-### 📊 Passo 9: Boas Práticas
+### 📊 Step 9: Best Practices
 
 #### ✅ Do's
-- ✅ Sempre validar o schema antes do build
-- ✅ Testar no Storybook antes de publicar
-- ✅ Usar TypeScript para type safety
-- ✅ Seguir convenção de nomenclatura: `Org_Library_ComponentName`
-- ✅ Documentar propriedades no config.json
-- ✅ Usar styled-components para estilos
-- ✅ Implementar cleanup no useEffect
-- ✅ Versionar adequadamente (semver)
+- ✅ Always validate schema before build
+- ✅ Test in Storybook before publishing
+- ✅ Use TypeScript for type safety
+- ✅ Follow naming convention: `Org_Library_ComponentName`
+- ✅ Document properties in config.json
+- ✅ Use styled-components for styling
+- ✅ Implement cleanup in useEffect
+- ✅ Version properly (semver)
 
 #### ❌ Don'ts
-- ❌ Não hardcodar valores que podem ser configuráveis
-- ❌ Não usar inline styles
-- ❌ Não esquecer de passar props corretamente
-- ❌ Não publicar sem testar
-- ❌ Não usar console.log em produção
-- ❌ Não criar dependências circulares
+- ❌ Don't hardcode values that can be configurable
+- ❌ Don't use inline styles
+- ❌ Don't forget to pass props correctly
+- ❌ Don't publish without testing
+- ❌ Don't use console.log in production
+- ❌ Don't create circular dependencies
 
 ---
 
-### 🐛 Troubleshooting Comum
+### 🐛 Common Troubleshooting
 
-#### Erro: "Invalid schema"
+#### Error: "Invalid schema"
 ```bash
 npm run validate-schema
-# Verificar config.json
+# Check config.json
 ```
 
-#### Erro: "Cannot authenticate"
+#### Error: "Cannot authenticate"
 ```bash
-# Verificar tasks.config.json
-# Verificar certificados SSL
+# Check tasks.config.json
+# Check SSL certificates
 npm run authenticate
 ```
 
-#### Erro: "Build failed"
+#### Error: "Build failed"
 ```bash
-# Verificar erros TypeScript
+# Check TypeScript errors
 npm run lint
-# Verificar imports
+# Check imports
 ```
 
-#### Componente não aparece no Pega
+#### Component doesn't appear in Pega
 ```bash
-# Verificar se foi publicado
+# Check if it was published
 npm run list
-# Republicar
+# Republish
 npm run publish
 ```
 
 ---
 
-### 📚 Tipos de Componentes
+### 📚 Component Types
 
 #### Widget
-Para componentes visuais standalone (gráficos, relógios, displays)
+For standalone visual components (charts, clocks, displays)
 ```json
 {
   "type": "Widget",
@@ -679,7 +679,7 @@ Para componentes visuais standalone (gráficos, relógios, displays)
 ```
 
 #### Field
-Para campos de formulário (inputs, selects, etc)
+For form fields (inputs, selects, etc)
 ```json
 {
   "type": "Field",
@@ -688,7 +688,7 @@ Para campos de formulário (inputs, selects, etc)
 ```
 
 #### Template
-Para layouts e estruturas
+For layouts and structures
 ```json
 {
   "type": "Template",
@@ -698,9 +698,9 @@ Para layouts e estruturas
 
 ---
 
-## 🛠️ Stack Tecnológica
+## 🛠️ Technology Stack
 
-| Tecnologia | Versão | Uso |
+| Technology | Version | Use |
 |-----------|--------|-----|
 | ![React](https://img.shields.io/badge/React-17.0.2-61DAFB?logo=react) | 17.0.2 | Framework UI |
 | ![TypeScript](https://img.shields.io/badge/TypeScript-5.3.3-3178C6?logo=typescript) | 5.3.3 | Type Safety |
@@ -710,7 +710,7 @@ Para layouts e estruturas
 | ![ESLint](https://img.shields.io/badge/ESLint-8.57.0-4B32C3?logo=eslint) | 8.57.0 | Code Quality |
 | ![Prettier](https://img.shields.io/badge/Prettier-3.3.3-F7B93E?logo=prettier) | 3.3.3 | Code Format |
 
-### 📦 Dependências Principais
+### 📦 Main Dependencies
 
 ```json
 {
@@ -724,51 +724,51 @@ Para layouts e estruturas
 
 ---
 
-## 📚 Documentação e Recursos
+## 📚 Documentation and Resources
 
-### 📖 Documentação Oficial
+### 📖 Official Documentation
 - [Pega DX Component Builder](https://docs.pega.com/bundle/constellation-dx-components/page/constellation-dx-components/custom-components/whats-new-constellation-dx-component-builder.html)
 - [Pega Constellation](https://docs.pega.com/bundle/constellation/page/constellation/constellation/constellation-overview.html)
 - [Cosmos React Components](https://design.pega.com/cosmos-react/)
 
-### 🎓 Recursos de Aprendizado
+### 🎓 Learning Resources
 - [React Documentation](https://react.dev/)
 - [TypeScript Handbook](https://www.typescriptlang.org/docs/)
 - [Styled Components Docs](https://styled-components.com/docs)
 
 ---
 
-## 🤝 Contribuindo
+## 🤝 Contributing
 
-Contribuições são bem-vindas! Siga os passos:
+Contributions are welcome! Follow these steps:
 
-1. Fork o projeto
-2. Crie uma branch para sua feature (`git checkout -b feature/AmazingFeature`)
-3. Commit suas mudanças (`git commit -m 'Add some AmazingFeature'`)
-4. Push para a branch (`git push origin feature/AmazingFeature`)
-5. Abra um Pull Request
-
----
-
-## 📄 Licença
-
-Este projeto está sob a licença especificada no arquivo `LICENSE`.
+1. Fork the project
+2. Create a branch for your feature (`git checkout -b feature/AmazingFeature`)
+3. Commit your changes (`git commit -m 'Add some AmazingFeature'`)
+4. Push to the branch (`git push origin feature/AmazingFeature`)
+5. Open a Pull Request
 
 ---
 
-## 👤 Autor
+## 📄 License
 
-**Desenvolvido por:** [@jguerradasilva](https://github.com/jguerradasilva)
+This project is licensed under the license specified in the `LICENSE` file.
 
-### 📬 Contato
+---
+
+## 👤 Author
+
+**Developed by:** [@jguerradasilva](https://github.com/jguerradasilva)
+
+### 📬 Contact
 
 - GitHub: [@jguerradasilva](https://github.com/jguerradasilva)
-- LinkedIn: [Seu LinkedIn]
-- Email: [Seu Email]
+- LinkedIn: [Your LinkedIn]
+- Email: [Your Email]
 
 ---
 
-## 📊 Status do Projeto
+## 📊 Project Status
 
 ![Status](https://img.shields.io/badge/Status-Active-success?style=flat-square)
 ![Maintenance](https://img.shields.io/badge/Maintained-Yes-green?style=flat-square)
@@ -778,8 +778,8 @@ Este projeto está sob a licença especificada no arquivo `LICENSE`.
 
 <div align="center">
 
-### ⭐ Se este projeto foi útil, considere dar uma estrela!
+### ⭐ If this project was useful, consider giving it a star!
 
-**Versão**: 1.0.0 | **Última Atualização**: Dezembro 2025
+**Version**: 1.0.0 | **Last Update**: December 2025
 
 </div>
