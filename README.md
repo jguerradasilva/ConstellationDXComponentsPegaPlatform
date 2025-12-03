@@ -763,8 +763,8 @@ This project is licensed under the license specified in the `LICENSE` file.
 ### 📬 Contact
 
 - GitHub: [@jguerradasilva](https://github.com/jguerradasilva)
-- LinkedIn: [Your LinkedIn]
-- Email: [Your Email]
+- LinkedIn: [jguerradasilva](https://www.linkedin.com/in/jguerradasilva/)
+- Email: [jguerradasilva@hotmail.com]
 
 ---
 
