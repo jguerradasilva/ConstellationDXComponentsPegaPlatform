@@ -48,8 +48,12 @@ This project serves as a professional portfolio demonstrating expertise in:
 ### 1. Digital Clock Widget
 
 <div align="center">
-  <img src="docs/digital-clock-configuration.png" alt="Digital Clock Component in Pega" width="450"/>
-  <img src="docs/digital-clock-demo.png" alt="Digital Clock Component Demo" width="450"/>
+  <table>
+    <tr>
+      <td><img src="docs/digital-clock-configuration.png" alt="Digital Clock Component in Pega" width="400"/></td>
+      <td><img src="docs/digital-clock-demo.png" alt="Digital Clock Component Demo" width="400"/></td>
+    </tr>
+  </table>
 </div>
 
 A modern, fully customizable digital clock that displays time and date in real-time.
