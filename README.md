@@ -50,8 +50,8 @@ This project serves as a professional portfolio demonstrating expertise in:
 <div align="center">
   <table>
     <tr>
-      <td><img src="docs/digital-clock-configuration.png" alt="Digital Clock Component in Pega" width="400"/></td>
       <td><img src="docs/digital-clock-demo.png" alt="Digital Clock Component Demo" width="400"/></td>
+      <td><img src="docs/digital-clock-configuration.png" alt="Digital Clock Component in Pega" width="400"/></td>
     </tr>
   </table>
 </div>
