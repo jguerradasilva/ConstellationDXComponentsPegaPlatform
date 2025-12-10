@@ -48,7 +48,7 @@ This project serves as a professional portfolio demonstrating expertise in:
 ### 1. Digital Clock Widget
 
 <div align="center">
-  <img src="https://github.com/user-attachments/assets/e6e0b21e-06f5-4bcc-b088-0de5d9e08950" alt="Digital Clock Component" width="600"/>
+  <img src="docs/digital-clock-demo.png" alt="Digital Clock Component" width="600"/>
 </div>
 
 A modern, fully customizable digital clock that displays time and date in real-time.
@@ -97,10 +97,6 @@ A modern, fully customizable digital clock that displays time and date in real-t
 ### 2. Sticky Notes Widget
 
 > ⚠️ **PREREQUISITE REQUIRED**: You must create the `.StickyNotes` Page List in Pega **BEFORE** adding this widget to your view. See [Setup Instructions](#-setup-in-pega) below.
-
-<div align="center">
-  <img src="docs/sticky-notes-demo.png" alt="Sticky Notes Component" width="600"/>
-</div>
 
 A complete sticky notes widget with CRUD operations, customizable colors, and automatic persistence to Pega Runtime.
 
