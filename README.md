@@ -48,7 +48,7 @@ This project serves as a professional portfolio demonstrating expertise in:
 ### 1. Digital Clock Widget
 
 <div align="center">
-  <img src="docs/digital-clock-demo.png" alt="Digital Clock Component" width="400"/>
+  <img src="https://github.com/user-attachments/assets/e6e0b21e-06f5-4bcc-b088-0de5d9e08950" alt="Digital Clock Component" width="600"/>
 </div>
 
 A modern, fully customizable digital clock that displays time and date in real-time.
@@ -96,6 +96,8 @@ A modern, fully customizable digital clock that displays time and date in real-t
 
 ### 2. Sticky Notes Widget
 
+> ⚠️ **PREREQUISITE REQUIRED**: You must create the `.StickyNotes` Page List in Pega **BEFORE** adding this widget to your view. See [Setup Instructions](#-setup-in-pega) below.
+
 <div align="center">
   <img src="docs/sticky-notes-demo.png" alt="Sticky Notes Component" width="600"/>
 </div>
@@ -111,45 +113,46 @@ A complete sticky notes widget with CRUD operations, customizable colors, and au
 **✨ Features:**
 - 📝 Create, edit, and delete notes
 - 🎨 6 customizable color options
-- 👤 Automatic user tracking (CreatedBy)
-- 📅 Timestamp on each note (CreatedOn)
-- 💾 Auto-save to Pega Runtime (.NotesList)
+- 👤 Automatic user tracking (pxCreateOperator - Pega standard)
+- 📅 Timestamp on each note (pxCreateDateTime - Pega standard)
+- 💾 Auto-save to Pega Runtime (`.StickyNotes` Page List)
 - 📱 Responsive grid layout
 - 🔒 Read-only mode support
 - ⚡ Real-time state synchronization
+- ✅ Uses Pega standard properties with custom Page List
 
 **⚙️ Configurable Properties:**
 
 | Property | Type | Default | Description |
 |----------|------|---------|-------------|
 | `label` | Text | "Sticky Notes" | Widget title |
-| `value` | Text | ".NotesList" | Page List property path |
+| `value` | Text | ".StickyNotes" | Page List property path (@baseclass) |
 | `readOnly` | Boolean | `false` | Enable/disable editing |
 | `visibility` | Visibility | Visible | Control visibility |
 | `testId` | Text | - | Test automation ID |
 
 **📊 Data Structure (Page List):**
 
-The component works with a Pega **Page List** with the following structure:
+The component uses a custom **Page List `.StickyNotes`** (type `@baseclass`):
 
 ```javascript
-.NotesList = [
+.StickyNotes = [
   {
-    NoteText: "Review requirements document",
-    CreatedBy: "john.doe@company.com",
-    CreatedOn: "2025-12-10T10:30:00.000Z",
-    Color: "#FFE082",
+    pyNote: "Review requirements document",
+    pxCreateOperator: "john.doe@company.com",
+    pxCreateDateTime: "2025-12-10T10:30:00.000Z",
+    pyDescription: "#FFE082",
     pyGUID: "note_1733839800000_abc123"
   }
 ]
 ```
 
 **Property Details:**
-- `NoteText` (String) - Note content
-- `CreatedBy` (String) - User who created the note
-- `CreatedOn` (DateTime) - Creation timestamp
-- `Color` (String) - Note color in hex format
-- `pyGUID` (String) - Unique identifier (auto-generated)
+- `pyNote` (String) - Note content text
+- `pxCreateOperator` (String) - User who created the note (Pega standard)
+- `pxCreateDateTime` (DateTime) - Creation timestamp (Pega standard)
+- `pyDescription` (String) - Note color in hex format
+- `pyGUID` (String) - Unique identifier (Pega standard)
 
 **🎨 Available Colors:**
 - 🟨 Yellow (`#FFE082`) - Default
@@ -161,13 +164,13 @@ The component works with a Pega **Page List** with the following structure:
 
 **🔌 Pega Runtime Integration:**
 
-The component automatically integrates with Pega using:
+The component automatically integrates with Pega using `.StickyNotes` Page List:
 ```javascript
-// Update Page List
-getPConnect().getActionsApi().updateFieldValue('.NotesList', updatedNotes)
+// Update .StickyNotes Page List
+getPConnect().getActionsApi().updateFieldValue('.StickyNotes', updatedNotes)
 
 // Trigger change event
-getPConnect().getActionsApi().triggerFieldChange('.NotesList', updatedNotes)
+getPConnect().getActionsApi().triggerFieldChange('.StickyNotes', updatedNotes)
 
 // Get current user
 window.PCore.getUserApi().getOperatorName()
@@ -175,24 +178,46 @@ window.PCore.getUserApi().getOperatorName()
 
 **📝 Setup in Pega:**
 
-1. **Create Page List in Data Model:**
-   - Property name: `NotesList`
-   - Type: Page List
-   - Add properties: `NoteText`, `CreatedBy`, `CreatedOn`, `Color`, `pyGUID`
+> ⚠️ **IMPORTANT**: Complete Step 1 BEFORE adding the widget to your view!
 
-2. **Add Widget to View:**
-   - Drag a Widget component
-   - Select `Sl_DXExtensions_StickyNotes`
-   - Configure `value` property to `.NotesList`
+**Step 1: Create the Page List (REQUIRED FIRST)**
 
-3. **Usage Example:**
+1. Open your Case Type or Data Type in Pega
+2. Go to **Data model** section
+3. Click **+ Add field**
+4. Configure the Page List:
+   - **Property name**: `StickyNotes`
+   - **Type**: **Page List**
+   - **Page Class**: **@baseclass**
+5. Add the following properties to the Page List:
+   - `pyNote` (Text) - note content
+   - `pxCreateOperator` (Text) - creator (Pega standard property)
+   - `pxCreateDateTime` (DateTime) - timestamp (Pega standard property)
+   - `pyDescription` (Text) - color in hex format
+   - `pyGUID` (Text) - unique identifier
+6. **Save** the data model
+
+**Step 2: Add Widget to View**
+
+1. Open your View in App Studio
+2. Drag a **Widget** component onto the canvas
+3. Select `Sl_DXExtensions_StickyNotes` from the widget list
+4. Configure the widget properties:
+   - **Label**: "My Notes" (or your preferred title)
+   - **Value**: `.StickyNotes` (must match the Page List name created in Step 1)
+   - **Read Only**: `false` (or `true` for read-only mode)
+5. **Save** and test the view
+
+**Step 3: Usage Example**
 ```json
 {
   "label": "My Notes",
-  "value": ".NotesList",
+  "value": ".StickyNotes",
   "readOnly": false
 }
 ```
+
+> 💡 **Tip**: If the widget doesn't display properly, verify that the `.StickyNotes` Page List exists in your data model with all required properties.
 
 **✨ User Features:**
 - ➕ **Add Note**: Click "Add Note" button to create new note

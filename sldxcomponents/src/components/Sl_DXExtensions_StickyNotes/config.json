@@ -21,7 +21,7 @@
       "name": "value",
       "label": "Notes List Property",
       "format": "TEXT",
-      "defaultValue": ".NotesList"
+      "defaultValue": ".StickyNotes"
     },
     {
       "name": "readOnly",

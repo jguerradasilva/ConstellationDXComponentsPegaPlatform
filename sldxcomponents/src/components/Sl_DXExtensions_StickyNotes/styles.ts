@@ -21,26 +21,38 @@ export default styled.div(() => {
       }
       
       .add-note-button {
-        padding: 8px 16px;
+        padding: 12px 24px;
         background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
         color: white;
         border: none;
-        border-radius: 6px;
+        border-radius: 8px;
         cursor: pointer;
-        font-size: 14px;
-        font-weight: 500;
+        font-size: 16px;
+        font-weight: 600;
         transition: all 0.2s ease;
         display: flex;
         align-items: center;
-        gap: 6px;
+        gap: 8px;
+        box-shadow: 0 2px 8px rgba(102, 126, 234, 0.3);
+        
+        .button-icon {
+          font-size: 20px;
+        }
+        
+        .button-text {
+          font-weight: 600;
+          letter-spacing: 0.3px;
+        }
         
         &:hover {
-          transform: translateY(-2px);
-          box-shadow: 0 4px 12px rgba(102, 126, 234, 0.3);
+          transform: translateY(-3px);
+          box-shadow: 0 6px 16px rgba(102, 126, 234, 0.4);
+          background: linear-gradient(135deg, #5568d3 0%, #6a3f8f 100%);
         }
         
         &:active {
-          transform: translateY(0);
+          transform: translateY(-1px);
+          box-shadow: 0 3px 10px rgba(102, 126, 234, 0.35);
         }
         
         &:disabled {

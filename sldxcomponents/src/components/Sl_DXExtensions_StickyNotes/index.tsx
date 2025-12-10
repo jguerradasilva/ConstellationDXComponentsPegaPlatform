@@ -4,13 +4,13 @@ import type { PConnProps } from './PConnProps';
 import './create-nonce';
 import StyledSlDxExtensionsStickyNotesWrapper from './styles';
 
-// Note interface matching Pega Page List structure
+// Note interface matching .StickyNotes Page List (@baseclass)
 interface Note {
-  NoteText: string;
-  CreatedBy: string;
-  CreatedOn: string;
-  Color: string;
-  pyGUID?: string;
+  pyNote?: string;             // Note text content
+  pxCreateOperator?: string;   // Created by operator (standard)
+  pxCreateDateTime?: string;   // Created date/time (standard)
+  pyDescription?: string;      // Color description (standard)
+  pyGUID?: string;             // Unique identifier (standard)
 }
 
 // Component props interface
@@ -44,13 +44,13 @@ function SlDxExtensionsStickyNotes(props: SlDxExtensionsStickyNotesProps) {
   const [notes, setNotes] = useState<Note[]>([]);
   const [editingNoteIndex, setEditingNoteIndex] = useState<number | null>(null);
 
-  // Initialize notes from props.value
+  // Initialize notes from props.value (using .StickyNotes Page List)
   useEffect(() => {
     if (Array.isArray(value)) {
       setNotes(value);
     } else if (value && typeof value === 'object') {
-      // Handle case where value might be an object with notes property
-      const notesArray = value.notes || value.NotesList || [];
+      // Handle .StickyNotes Page List structure
+      const notesArray = value.StickyNotes || [];
       setNotes(Array.isArray(notesArray) ? notesArray : []);
     }
   }, [value]);
@@ -72,29 +72,30 @@ function SlDxExtensionsStickyNotes(props: SlDxExtensionsStickyNotesProps) {
     return 'System';
   };
 
-  // Publish results to Pega Runtime
+  // Publish results to Pega Runtime (using .StickyNotes Page List)
   const publishToPega = (updatedNotes: Note[]) => {
     try {
       if (actionsApi && actionsApi.updateFieldValue) {
-        actionsApi.updateFieldValue('.NotesList', updatedNotes);
+        // Update .StickyNotes Page List
+        actionsApi.updateFieldValue('.StickyNotes', updatedNotes);
       }
       
       // Trigger field change event
       if (actionsApi && actionsApi.triggerFieldChange) {
-        actionsApi.triggerFieldChange('.NotesList', updatedNotes);
+        actionsApi.triggerFieldChange('.StickyNotes', updatedNotes);
       }
     } catch (error) {
       console.error('Error publishing to Pega:', error);
     }
   };
 
-  // Add new note
+  // Add new note using .StickyNotes structure
   const handleAddNote = () => {
     const newNote: Note = {
-      NoteText: '',
-      CreatedBy: getCurrentUser(),
-      CreatedOn: new Date().toISOString(),
-      Color: AVAILABLE_COLORS[0],
+      pyNote: '',
+      pxCreateOperator: getCurrentUser(),
+      pxCreateDateTime: new Date().toISOString(),
+      pyDescription: AVAILABLE_COLORS[0],
       pyGUID: `note_${Date.now()}_${Math.random().toString(36).substr(2, 9)}`
     };
     
@@ -104,23 +105,23 @@ function SlDxExtensionsStickyNotes(props: SlDxExtensionsStickyNotesProps) {
     publishToPega(updatedNotes);
   };
 
-  // Update note text
+  // Update note text using pyNote property
   const handleNoteTextChange = (index: number, text: string) => {
     const updatedNotes = [...notes];
     updatedNotes[index] = {
       ...updatedNotes[index],
-      NoteText: text
+      pyNote: text
     };
     setNotes(updatedNotes);
     publishToPega(updatedNotes);
   };
 
-  // Update note color
+  // Update note color using pyDescription property
   const handleColorChange = (index: number, color: string) => {
     const updatedNotes = [...notes];
     updatedNotes[index] = {
       ...updatedNotes[index],
-      Color: color
+      pyDescription: color
     };
     setNotes(updatedNotes);
     publishToPega(updatedNotes);
@@ -161,9 +162,10 @@ function SlDxExtensionsStickyNotes(props: SlDxExtensionsStickyNotesProps) {
             className="add-note-button" 
             onClick={handleAddNote}
             type="button"
+            title="Click to add a new sticky note"
           >
-            <span>➕</span>
-            <span>Add Note</span>
+            <span className="button-icon">📝</span>
+            <span className="button-text">Add Note</span>
           </button>
         )}
       </div>
@@ -179,10 +181,10 @@ function SlDxExtensionsStickyNotes(props: SlDxExtensionsStickyNotesProps) {
       ) : (
         <div className="notes-grid">
           {notes.map((note, index) => (
-            <div key={note.pyGUID || `note-${note.CreatedOn}-${index}`} className="sticky-note">
+            <div key={note.pyGUID || `note-${note.pxCreateDateTime}-${index}`} className="sticky-note">
               <div 
                 className="note-color-strip" 
-                style={{ backgroundColor: note.Color }}
+                style={{ backgroundColor: note.pyDescription || AVAILABLE_COLORS[0] }}
               />
               
               <div className="note-header">
@@ -190,7 +192,7 @@ function SlDxExtensionsStickyNotes(props: SlDxExtensionsStickyNotesProps) {
                   {!readOnly && AVAILABLE_COLORS.map((color) => (
                     <div
                       key={color}
-                      className={`color-option ${note.Color === color ? 'selected' : ''}`}
+                      className={`color-option ${note.pyDescription === color ? 'selected' : ''}`}
                       style={{ backgroundColor: color }}
                       onClick={() => handleColorChange(index, color)}
                       role="button"
@@ -215,7 +217,7 @@ function SlDxExtensionsStickyNotes(props: SlDxExtensionsStickyNotesProps) {
               <div className="note-content">
                 {!readOnly ? (
                   <textarea
-                    value={note.NoteText}
+                    value={note.pyNote || ''}
                     onChange={(e) => handleNoteTextChange(index, e.target.value)}
                     onFocus={() => setEditingNoteIndex(index)}
                     onBlur={() => setEditingNoteIndex(null)}
@@ -224,15 +226,15 @@ function SlDxExtensionsStickyNotes(props: SlDxExtensionsStickyNotesProps) {
                   />
                 ) : (
                   <div className="note-text-display">
-                    {note.NoteText || '(Empty note)'}
+                    {note.pyNote || '(Empty note)'}
                   </div>
                 )}
               </div>
 
               <div className="note-footer">
                 <div className="note-metadata">
-                  <span className="created-by">{note.CreatedBy}</span>
-                  <span className="created-on">{formatDate(note.CreatedOn)}</span>
+                  <span className="created-by">{note.pxCreateOperator}</span>
+                  <span className="created-on">{formatDate(note.pxCreateDateTime)}</span>
                 </div>
               </div>
             </div>

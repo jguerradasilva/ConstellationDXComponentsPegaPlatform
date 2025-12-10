@@ -2,6 +2,8 @@
 
 Widget de Sticky Notes para Pega Constellation DX Components.
 
+> ⚠️ **REQUISITO OBRIGATÓRIO**: Você deve criar a Page List `.StickyNotes` no Pega **ANTES** de adicionar este widget à sua view.
+
 ## Descrição
 
 Um componente de notas adesivas (sticky notes) totalmente funcional que permite aos usuários:
@@ -15,23 +17,25 @@ Um componente de notas adesivas (sticky notes) totalmente funcional que permite 
 
 ## Estrutura de Dados
 
-O componente trabalha com uma **Page List** no Pega com a seguinte estrutura:
+> ⚠️ **Esta Page List deve ser criada ANTES de usar o widget!**
+
+O componente trabalha com uma **Page List** `.StickyNotes` (tipo `@baseclass`) no Pega:
 
 ```
-.NotesList (Page List)
-  ├─ .NoteText (String)      - Texto da nota
-  ├─ .CreatedBy (String)     - Usuário que criou
-  ├─ .CreatedOn (DateTime)   - Data/hora de criação
-  ├─ .Color (String)         - Cor da nota (hex)
-  └─ .pyGUID (String)        - ID único (opcional)
+.StickyNotes (Page List - @baseclass)
+  ├─ .pyNote (Text)              - Texto da nota
+  ├─ .pxCreateOperator (Text)    - Usuário que criou (padrão Pega)
+  ├─ .pxCreateDateTime (DateTime)- Data/hora de criação (padrão Pega)
+  ├─ .pyDescription (Text)       - Cor da nota (hex)
+  └─ .pyGUID (Text)              - ID único (padrão Pega)
 ```
 
 ## Propriedades do Componente
 
 | Propriedade | Tipo | Padrão | Descrição |
-|------------|------|--------|-----------|
+|------------|------|--------|-----------||
 | `label` | String | "Sticky Notes" | Título do widget |
-| `value` | String | ".NotesList" | Caminho da Page List |
+| `value` | String | ".StickyNotes" | Caminho da Page List (@baseclass) |
 | `readOnly` | Boolean | false | Modo somente leitura |
 
 ## Cores Disponíveis
@@ -57,20 +61,43 @@ npm run publish
 
 ### 2. Configurar no Pega
 
-1. **Criar a Page List** na sua classe de trabalho:
-   - Nome: `NotesList`
-   - Tipo: Page List
-   - Adicionar as propriedades: `NoteText`, `CreatedBy`, `CreatedOn`, `Color`
+> ⚠️ **ATENÇÃO**: Execute os passos na ordem abaixo!
 
-2. **Adicionar o componente na View**:
-   - Abra o Constellation Design System
-   - Adicione um novo Widget
-   - Selecione `Sl_DXExtensions_StickyNotes`
-   - Configure a propriedade `value` para `.NotesList`
+**PASSO 1: Criar a Page List (OBRIGATÓRIO PRIMEIRO)**
 
-3. **Deploy**:
-   - O componente será disponibilizado automaticamente após o publish
-   - Certifique-se de que o canal Constellation está configurado
+1. Abra seu Case Type ou Data Type no Pega
+2. Vá para a seção **Data model**
+3. Clique em **+ Add field**
+4. Configure a Page List:
+   - **Nome da propriedade**: `StickyNotes`
+   - **Tipo**: **Page List**
+   - **Page Class**: **@baseclass**
+5. Adicione as seguintes propriedades à Page List:
+   - `pyNote` (Text) - conteúdo da nota
+   - `pxCreateOperator` (Text) - criador (propriedade padrão Pega)
+   - `pxCreateDateTime` (DateTime) - timestamp (propriedade padrão Pega)
+   - `pyDescription` (Text) - cor em formato hex
+   - `pyGUID` (Text) - identificador único
+6. **Salve** o data model
+
+**PASSO 2: Adicionar o Widget na View**
+
+1. Abra sua View no App Studio
+2. Adicione um novo **Widget** no canvas
+3. Selecione `Sl_DXExtensions_StickyNotes`
+4. Configure a propriedade `value` para `.StickyNotes` (deve corresponder ao nome da Page List criada no Passo 1)
+5. Configure outras propriedades conforme necessário:
+   - `label`: "Minhas Notas" (ou título desejado)
+   - `readOnly`: `false` (ou `true` para modo somente leitura)
+6. **Salve** e teste a view
+
+**PASSO 3: Deploy e Teste**
+
+1. O componente será disponibilizado automaticamente após o publish
+2. Certifique-se de que o canal Constellation está configurado
+3. Teste criando, editando e excluindo notas
+
+> 💡 **Dica**: Se o widget não exibir corretamente, verifique se a Page List `.StickyNotes` existe no seu data model com todas as propriedades necessárias.
 
 ### 3. Estrutura de Arquivos
 
