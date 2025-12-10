@@ -233,8 +233,8 @@ function SlDxExtensionsStickyNotes(props: SlDxExtensionsStickyNotesProps) {
 
               <div className="note-footer">
                 <div className="note-metadata">
-                  <span className="created-by">{note.pxCreateOperator}</span>
-                  <span className="created-on">{formatDate(note.pxCreateDateTime)}</span>
+                  <span className="created-by">{note.pxCreateOperator || 'Unknown'}</span>
+                  <span className="created-on">{formatDate(note.pxCreateDateTime || '')}</span>
                 </div>
               </div>
             </div>
