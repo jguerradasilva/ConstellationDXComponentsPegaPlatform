@@ -94,6 +94,128 @@ A modern, fully customizable digital clock that displays time and date in real-t
 
 ---
 
+### 2. Sticky Notes Widget
+
+<div align="center">
+  <img src="docs/sticky-notes-demo.png" alt="Sticky Notes Component" width="600"/>
+</div>
+
+A complete sticky notes widget with CRUD operations, customizable colors, and automatic persistence to Pega Runtime.
+
+**🎯 Technical Specifications:**
+- **Type**: Widget
+- **Library**: DXExtensions
+- **Framework**: React 17 + TypeScript
+- **Persistence**: Automatic sync with Pega Page List
+
+**✨ Features:**
+- 📝 Create, edit, and delete notes
+- 🎨 6 customizable color options
+- 👤 Automatic user tracking (CreatedBy)
+- 📅 Timestamp on each note (CreatedOn)
+- 💾 Auto-save to Pega Runtime (.NotesList)
+- 📱 Responsive grid layout
+- 🔒 Read-only mode support
+- ⚡ Real-time state synchronization
+
+**⚙️ Configurable Properties:**
+
+| Property | Type | Default | Description |
+|----------|------|---------|-------------|
+| `label` | Text | "Sticky Notes" | Widget title |
+| `value` | Text | ".NotesList" | Page List property path |
+| `readOnly` | Boolean | `false` | Enable/disable editing |
+| `visibility` | Visibility | Visible | Control visibility |
+| `testId` | Text | - | Test automation ID |
+
+**📊 Data Structure (Page List):**
+
+The component works with a Pega **Page List** with the following structure:
+
+```javascript
+.NotesList = [
+  {
+    NoteText: "Review requirements document",
+    CreatedBy: "john.doe@company.com",
+    CreatedOn: "2025-12-10T10:30:00.000Z",
+    Color: "#FFE082",
+    pyGUID: "note_1733839800000_abc123"
+  }
+]
+```
+
+**Property Details:**
+- `NoteText` (String) - Note content
+- `CreatedBy` (String) - User who created the note
+- `CreatedOn` (DateTime) - Creation timestamp
+- `Color` (String) - Note color in hex format
+- `pyGUID` (String) - Unique identifier (auto-generated)
+
+**🎨 Available Colors:**
+- 🟨 Yellow (`#FFE082`) - Default
+- 🟩 Green (`#A5D6A7`)
+- 🟦 Blue (`#90CAF9`)
+- 🟪 Pink (`#F48FB1`)
+- 🟪 Purple (`#CE93D8`)
+- 🟧 Orange (`#FFAB91`)
+
+**🔌 Pega Runtime Integration:**
+
+The component automatically integrates with Pega using:
+```javascript
+// Update Page List
+getPConnect().getActionsApi().updateFieldValue('.NotesList', updatedNotes)
+
+// Trigger change event
+getPConnect().getActionsApi().triggerFieldChange('.NotesList', updatedNotes)
+
+// Get current user
+window.PCore.getUserApi().getOperatorName()
+```
+
+**📝 Setup in Pega:**
+
+1. **Create Page List in Data Model:**
+   - Property name: `NotesList`
+   - Type: Page List
+   - Add properties: `NoteText`, `CreatedBy`, `CreatedOn`, `Color`, `pyGUID`
+
+2. **Add Widget to View:**
+   - Drag a Widget component
+   - Select `Sl_DXExtensions_StickyNotes`
+   - Configure `value` property to `.NotesList`
+
+3. **Usage Example:**
+```json
+{
+  "label": "My Notes",
+  "value": ".NotesList",
+  "readOnly": false
+}
+```
+
+**✨ User Features:**
+- ➕ **Add Note**: Click "Add Note" button to create new note
+- ✏️ **Edit**: Click on any note text to edit inline
+- 🎨 **Change Color**: Click on color circles to change note color
+- 🗑️ **Delete**: Click delete button to remove note
+- 💾 **Auto-Save**: All changes save automatically to Pega
+
+**📱 Responsive Design:**
+- Desktop: 3-4 column grid
+- Tablet: 2 column grid
+- Mobile: Single column
+
+**🎯 Use Cases:**
+- Task management in case workflow
+- Quick notes during case processing
+- Team collaboration notes
+- Status tracking
+- Follow-up reminders
+- Meeting notes
+
+---
+
 ## 🚀 Installation and Setup
 
 ### ✅ Prerequisites
