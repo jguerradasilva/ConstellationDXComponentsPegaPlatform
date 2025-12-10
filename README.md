@@ -98,6 +98,10 @@ A modern, fully customizable digital clock that displays time and date in real-t
 
 > ⚠️ **PREREQUISITE REQUIRED**: You must create the `.StickyNotes` Page List in Pega **BEFORE** adding this widget to your view. See [Setup Instructions](#-setup-in-pega) below.
 
+<div align="center">
+  <img src="https://github.com/user-attachments/assets/7f0433d7-4eff-406d-9c10-7d18a15e9c74" alt="Sticky Notes Component" width="600"/>
+</div>
+
 A complete sticky notes widget with CRUD operations, customizable colors, and automatic persistence to Pega Runtime.
 
 **🎯 Technical Specifications:**
