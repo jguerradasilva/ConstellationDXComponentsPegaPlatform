@@ -99,7 +99,7 @@ A modern, fully customizable digital clock that displays time and date in real-t
 
 ---
 
-### 2. Sticky Notes Widget
+### 2. Sticky Notes Widget (In progress)
 
 > ⚠️ **PREREQUISITE REQUIRED**: You must create the `.StickyNotes` Page List in Pega **BEFORE** adding this widget to your view. See [Setup Instructions](#-setup-in-pega) below.
 
