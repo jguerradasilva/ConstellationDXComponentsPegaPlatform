@@ -8,10 +8,7 @@
   "allowedApplications": [],
   "componentKey": "Sl_DXExtensions_CopyToClipboardField",
   "type": "Field",
-  "subtype": [
-    "PAGE",
-    "CASE"
-  ],
+  "subtype": "Text",
   "icon": "OneColumnPage.svg",
   "properties": [
     {
