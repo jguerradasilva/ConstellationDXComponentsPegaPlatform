@@ -1,12 +1,12 @@
 {
-  "name": "Sl_DXExtensions_CopyToClipboard",
+  "name": "Sl_DXExtensions_CopyToClipboardField",
   "label": "Copy to Clipboard",
   "description": "Displays a read-only text value with a copy to clipboard button",
   "organization": "Sl",
   "version": "1.0.0",
   "library": "DXExtensions",
   "allowedApplications": [],
-  "componentKey": "Sl_DXExtensions_CopyToClipboard",
+  "componentKey": "Sl_DXExtensions_CopyToClipboardField",
   "type": "Field",
   "subtype": [
     "PAGE",

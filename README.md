@@ -224,7 +224,7 @@ ConstellationDXComponentsPegaPlatform/
 ├── 📂 sldxcomponents/              # Main directory
 │   ├── 📂 src/
 │   │   └── 📂 components/          # Custom components
-│   │       ├── Sl_DXExtensions_CopyToClipboard/
+│   │       ├── Sl_DXExtensions_CopyToClipboardField/
 │   │       │   ├── index.tsx       # React component
 │   │       │   ├── config.json     # Pega configuration
 │   │       │   ├── styles.ts       # Styled Components
