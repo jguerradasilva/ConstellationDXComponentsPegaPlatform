@@ -45,7 +45,111 @@ This project serves as a professional portfolio demonstrating expertise in:
 
 ## 🧩 Available Components
 
-### 1. Digital Clock Widget
+### 1. Copy to Clipboard Field
+
+<div align="center">
+  <img src="https://github.com/user-attachments/assets/copy-to-clipboard-demo.png" alt="Copy to Clipboard Component" width="400"/>
+</div>
+
+A read-only field component that displays text values with a copy-to-clipboard button. Perfect for displaying IDs, codes, emails, or any text that users need to copy frequently.
+
+**🎯 Technical Specifications:**
+- **Type**: Field Component (Read-only)
+- **Library**: DXExtensions
+- **Framework**: React 17 + TypeScript
+- **API**: Modern Clipboard API
+- **Accessibility**: Full ARIA support
+
+**✨ Features:**
+- 📋 One-click copy to clipboard functionality
+- 🎨 Customizable button position (left/right)
+- 💬 Animated success/error tooltips
+- 🎯 Icon or text button options
+- 📱 Responsive design
+- ♿ Full accessibility support
+- ⚡ Browser-native clipboard API
+- 🔒 Secure clipboard access
+
+**⚙️ Configurable Properties:**
+
+| Property | Type | Default | Description |
+|----------|------|---------|-------------|
+| `label` | Text | "Copy Field" | Field label |
+| `value` | Field Reference | - | Text value to display and copy |
+| `hideLabel` | Boolean | `false` | Hide the label |
+| `buttonPosition` | Select | "right" | Button position (right/left) |
+| `showIcon` | Boolean | `true` | Show emoji icon or text |
+| `successMessage` | Text | "Copied!" | Success tooltip message |
+| `errorMessage` | Text | "Failed to copy" | Error tooltip message |
+| `visibility` | Visibility | Visible | Control visibility |
+| `testId` | Text | - | Test automation ID |
+
+**🎨 Usage Examples:**
+
+**Protocol Number:**
+```javascript
+{
+  "label": "Protocol ID",
+  "value": ".CaseID",
+  "buttonPosition": "right",
+  "showIcon": true,
+  "successMessage": "Protocol copied!"
+}
+```
+
+**Email Address:**
+```javascript
+{
+  "label": "Customer Email",
+  "value": ".Customer.Email",
+  "buttonPosition": "left",
+  "showIcon": false,
+  "successMessage": "Email copied!"
+}
+```
+
+**CPF/Document:**
+```javascript
+{
+  "label": "CPF",
+  "value": ".Customer.CPF",
+  "buttonPosition": "right",
+  "showIcon": true,
+  "successMessage": "CPF copiado!"
+}
+```
+
+**🔌 Browser Compatibility:**
+- ✅ Chrome 66+
+- ✅ Firefox 63+
+- ✅ Safari 13.1+
+- ✅ Edge 79+
+- ⚠️ Requires HTTPS for clipboard access
+
+**📱 Responsive Behavior:**
+- Desktop: Full layout with tooltips
+- Mobile: Optimized touch targets
+- All devices: Accessible keyboard navigation
+
+**🎯 Use Cases:**
+- 📄 Protocol/Case IDs
+- 📧 Email addresses
+- 🆔 Document numbers (CPF, CNPJ, etc.)
+- 🔢 Reference codes
+- 🎫 Ticket numbers
+- 🔗 URLs and links
+- 💳 Account numbers
+- 📞 Phone numbers
+
+**♿ Accessibility:**
+- Full keyboard navigation support
+- Screen reader compatible
+- High contrast tooltip messages
+- Proper ARIA labels and descriptions
+
+---
+
+### 2. Digital Clock Widget
 
 <div align="center">
   <table>
@@ -120,12 +224,21 @@ ConstellationDXComponentsPegaPlatform/
 ├── 📂 sldxcomponents/              # Main directory
 │   ├── 📂 src/
 │   │   └── 📂 components/          # Custom components
+│   │       ├── Sl_DXExtensions_CopyToClipboard/
+│   │       │   ├── index.tsx       # React component
+│   │       │   ├── config.json     # Pega configuration
+│   │       │   ├── styles.ts       # Styled Components
+│   │       │   ├── PConnProps.d.ts # TypeScript interfaces
+│   │       │   ├── mock.ts         # Test data
+│   │       │   └── demo.stories.tsx
+│   │       │
 │   │       ├── Sl_DXExtensions_DigitalClock/
 │   │       │   ├── index.tsx       # React component
 │   │       │   ├── config.json     # Pega configuration
 │   │       │   ├── styles.ts       # Styled Components
 │   │       │   ├── mock.ts         # Test data
 │   │       │   └── demo.stories.tsx
+│   │       │
 │   │       └── _components.md
 │   │
 │   ├── 📂 keys/                    # SSL certificates
@@ -139,7 +252,8 @@ ConstellationDXComponentsPegaPlatform/
 │   └── 📄 tsconfig.json            # TypeScript configuration
 │
 ├── 📂 docs/                        # Documentation and assets
-│   └── digital-clock-demo.png
+│   ├── digital-clock-demo.png
+│   └── copy-to-clipboard-demo.png
 │
 └── 📄 README.md                    # This file
 ```
