@@ -99,7 +99,7 @@ A modern, fully customizable digital clock that displays time and date in real-t
 
 ---
 
-### 2. Copy to Clipboard Field
+### 2. Copy to Clipboard Field (In Prpgress)
 
 <div align="center">
   <img src="docs/copy-to-clipboard-1.png" alt="Copy to Clipboard Component" width="400"/>
