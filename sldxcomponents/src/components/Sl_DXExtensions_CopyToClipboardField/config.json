@@ -1,33 +1,33 @@
 {
   "name": "Sl_DXExtensions_CopyToClipboardField",
-  "label": "",
-  "description": "Displays a read-only text value with a copy to clipboard button",
+  "label": "Copy to Clipboard",
+  "description": "Text field with copy to clipboard button",
   "organization": "Sl",
   "version": "1.0.0",
   "library": "DXExtensions",
   "allowedApplications": [],
   "componentKey": "Sl_DXExtensions_CopyToClipboardField",
-  "type": "Field",
-  "subtype": "Text",
+  "type": "Widget",
+  "subtype": ["PAGE","CASE"],
   "icon": "OneColumnPage.svg",
   "properties": [
     {
       "name": "label",
       "label": "Label",
       "format": "TEXT",
-      "defaultValue": "Copy Field"
-    },
-    {
-      "name": "value",
-      "label": "Value",
-      "format": "FIELD_REFERENCE",
       "defaultValue": ""
     },
     {
-      "name": "hideLabel",
-      "label": "Hide Label",
-      "format": "BOOLEAN",
-      "defaultValue": false
+      "name": "value",
+      "label": "Value (direct text)",
+      "format": "TEXT",
+      "defaultValue": ""
+    },
+    {
+      "name": "fieldReference",
+      "label": "Field reference",
+      "format": "TEXT",
+      "defaultValue": ""
     },
     {
       "name": "buttonPosition",
@@ -46,22 +46,10 @@
       ]
     },
     {
-      "name": "showIcon",
-      "label": "Show Icon",
+      "name": "disabled",
+      "label": "Disabled",
       "format": "BOOLEAN",
-      "defaultValue": true
-    },
-    {
-      "name": "successMessage",
-      "label": "Success Message",
-      "format": "TEXT",
-      "defaultValue": "Copied!"
-    },
-    {
-      "name": "errorMessage",
-      "label": "Error Message",
-      "format": "TEXT",
-      "defaultValue": "Failed to copy"
+      "defaultValue": false
     },
     {
       "name": "visibility",
@@ -84,12 +72,10 @@
     }
   ],
   "defaultConfig": {
-    "label": "Copy Field",
+    "label": "Copy to Clipboard",
     "value": "",
-    "hideLabel": false,
+    "fieldReference": "",
     "buttonPosition": "right",
-    "showIcon": true,
-    "successMessage": "Copied!",
-    "errorMessage": "Failed to copy"
+    "disabled": false
   }
 }

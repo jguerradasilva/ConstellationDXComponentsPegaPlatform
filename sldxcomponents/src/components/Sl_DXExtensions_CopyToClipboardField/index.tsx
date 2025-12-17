@@ -12,33 +12,37 @@ import {
 interface CopyToClipboardProps extends PConnFieldProps {
   label?: string;
   value?: string;
-  hideLabel?: boolean;
+  fieldReference?: string;
   buttonPosition?: 'right' | 'left';
-  showIcon?: boolean;
-  successMessage?: string;
-  errorMessage?: string;
+  disabled?: boolean;
   testId?: string;
 }
 
 export default function CopyToClipboard(props: CopyToClipboardProps) {
   const {
-    label = 'Copy Field',
+    label = '',
     value = '',
-    hideLabel = false,
+    fieldReference = '',
     buttonPosition = 'right',
-    showIcon = true,
-    successMessage = 'Copied!',
-    errorMessage = 'Failed to copy',
-    testId
+    disabled = false,
+    testId,
+    getPConnect
   } = props;
 
+  // Get value from field reference if provided, otherwise use direct value
+  const displayValue = fieldReference && getPConnect 
+    ? getPConnect().getValue(fieldReference) || value
+    : value;
+
   const [showTooltip, setShowTooltip] = useState(false);
-  const [tooltipMessage, setTooltipMessage] = useState(successMessage);
+  const [tooltipMessage, setTooltipMessage] = useState('Copied!');
   const [isSuccess, setIsSuccess] = useState(true);
 
   const handleCopy = async () => {
+    if (disabled) return;
+    
     try {
-      if (!value) {
+      if (!displayValue) {
         setTooltipMessage('No value to copy');
         setIsSuccess(false);
         setShowTooltip(true);
@@ -46,14 +50,14 @@ export default function CopyToClipboard(props: CopyToClipboardProps) {
         return;
       }
 
-      await navigator.clipboard.writeText(value);
-      setTooltipMessage(successMessage);
+      await navigator.clipboard.writeText(displayValue);
+      setTooltipMessage('Copied!');
       setIsSuccess(true);
       setShowTooltip(true);
       setTimeout(() => setShowTooltip(false), 2000);
     } catch (error) {
       console.error('Failed to copy text:', error);
-      setTooltipMessage(errorMessage);
+      setTooltipMessage('Failed to copy');
       setIsSuccess(false);
       setShowTooltip(true);
       setTimeout(() => setShowTooltip(false), 2000);
@@ -62,16 +66,17 @@ export default function CopyToClipboard(props: CopyToClipboardProps) {
 
   return (
     <StyledCopyToClipboardWrapper data-testid={testId}>
-      {!hideLabel && label && <StyledLabel>{label}</StyledLabel>}
+      {label && <StyledLabel>{label}</StyledLabel>}
       
       <StyledFieldContainer buttonPosition={buttonPosition}>
         {buttonPosition === 'left' && (
           <StyledCopyButton 
             onClick={handleCopy}
+            disabled={disabled}
             title="Copy to clipboard"
             aria-label="Copy to clipboard"
           >
-            {showIcon ? '📋' : 'Copy'}
+            📋
             {showTooltip && (
               <StyledTooltip isSuccess={isSuccess}>
                 {tooltipMessage}
@@ -80,17 +85,18 @@ export default function CopyToClipboard(props: CopyToClipboardProps) {
           </StyledCopyButton>
         )}
 
-        <StyledValueText isEmpty={!value}>
-          {value || 'No value'}
+        <StyledValueText isEmpty={!displayValue}>
+          {displayValue || 'No value'}
         </StyledValueText>
 
         {buttonPosition === 'right' && (
           <StyledCopyButton 
             onClick={handleCopy}
+            disabled={disabled}
             title="Copy to clipboard"
             aria-label="Copy to clipboard"
           >
-            {showIcon ? '📋' : 'Copy'}
+            📋
             {showTooltip && (
               <StyledTooltip isSuccess={isSuccess}>
                 {tooltipMessage}
