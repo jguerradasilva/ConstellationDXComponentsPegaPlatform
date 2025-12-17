@@ -48,7 +48,7 @@ This project serves as a professional portfolio demonstrating expertise in:
 ### 1. Copy to Clipboard Field
 
 <div align="center">
-  <img src="https://github.com/user-attachments/assets/copy-to-clipboard-demo.png" alt="Copy to Clipboard Component" width="400"/>
+  <img src="docs/copy-to-clipboard-1.png" alt="Copy to Clipboard Component" width="400"/>
 </div>
 
 A read-only field component that displays text values with a copy-to-clipboard button. Perfect for displaying IDs, codes, emails, or any text that users need to copy frequently.
@@ -253,7 +253,8 @@ ConstellationDXComponentsPegaPlatform/
 │
 ├── 📂 docs/                        # Documentation and assets
 │   ├── digital-clock-demo.png
-│   └── copy-to-clipboard-demo.png
+│   ├── digital-clock-configuration.png
+│   └── copy-to-clipboard-1.png
 │
 └── 📄 README.md                    # This file
 ```
