@@ -1,6 +1,6 @@
 {
   "name": "Sl_DXExtensions_CopyToClipboardField",
-  "label": "Copy to Clipboard",
+  "label": "",
   "description": "Displays a read-only text value with a copy to clipboard button",
   "organization": "Sl",
   "version": "1.0.0",
