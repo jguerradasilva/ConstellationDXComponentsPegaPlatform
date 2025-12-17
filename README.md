@@ -45,7 +45,61 @@ This project serves as a professional portfolio demonstrating expertise in:
 
 ## 🧩 Available Components
 
-### 1. Copy to Clipboard Field
+### 1. Digital Clock Widget
+
+<div align="center">
+  <table>
+    <tr>
+      <td><img src="docs/digital-clock-demo.png" alt="Digital Clock Component Demo" width="400"/></td>
+      <td><img src="docs/digital-clock-configuration.png" alt="Digital Clock Component in Pega" width="400"/></td>
+    </tr>
+  </table>
+</div>
+
+A modern, fully customizable digital clock that displays time and date in real-time.
+
+**🎯 Technical Specifications:**
+- **Type**: Widget
+- **Library**: DXExtensions
+- **Framework**: React 17 + TypeScript
+- **Update**: Real-time (1s interval)
+
+**✨ Features:**
+- ⏰ Automatic real-time updates
+- 🎨 Fully customizable color gradient
+- 📅 Full date display in Portuguese (pt-BR)
+- 🔄 Support for 12h and 24h formats
+- 📱 Responsive and compact design
+- ⚡ Optimized performance with React hooks
+
+**⚙️ Configurable Properties:**
+
+| Property | Type | Default | Description |
+|----------|------|---------|-------------|
+| `label` | Text | "Digital Clock" | Label text |
+| `format24Hour` | Boolean | `false` | 12h or 24h format |
+| `showSeconds` | Boolean | `true` | Show seconds |
+| `showDate` | Boolean | `true` | Show full date |
+| `backgroundColor1` | Text (Hex) | `#667eea` | Gradient start color |
+| `backgroundColor2` | Text (Hex) | `#764ba2` | Gradient end color |
+| `textColor` | Text (Hex) | `#ffffff` | Text color |
+
+**📝 Usage Example:**
+```javascript
+// Pega Constellation configuration
+{
+  "format24Hour": false,
+  "showSeconds": true,
+  "showDate": true,
+  "backgroundColor1": "#667eea",
+  "backgroundColor2": "#764ba2",
+  "textColor": "#ffffff"
+}
+```
+
+---
+
+### 2. Copy to Clipboard Field
 
 <div align="center">
   <img src="docs/copy-to-clipboard-1.png" alt="Copy to Clipboard Component" width="400"/>
@@ -146,60 +200,6 @@ A read-only field component that displays text values with a copy-to-clipboard b
 - Screen reader compatible
 - High contrast tooltip messages
 - Proper ARIA labels and descriptions
-
----
-
-### 2. Digital Clock Widget
-
-<div align="center">
-  <table>
-    <tr>
-      <td><img src="docs/digital-clock-demo.png" alt="Digital Clock Component Demo" width="400"/></td>
-      <td><img src="docs/digital-clock-configuration.png" alt="Digital Clock Component in Pega" width="400"/></td>
-    </tr>
-  </table>
-</div>
-
-A modern, fully customizable digital clock that displays time and date in real-time.
-
-**🎯 Technical Specifications:**
-- **Type**: Widget
-- **Library**: DXExtensions
-- **Framework**: React 17 + TypeScript
-- **Update**: Real-time (1s interval)
-
-**✨ Features:**
-- ⏰ Automatic real-time updates
-- 🎨 Fully customizable color gradient
-- 📅 Full date display in Portuguese (pt-BR)
-- 🔄 Support for 12h and 24h formats
-- 📱 Responsive and compact design
-- ⚡ Optimized performance with React hooks
-
-**⚙️ Configurable Properties:**
-
-| Property | Type | Default | Description |
-|----------|------|---------|-------------|
-| `label` | Text | "Digital Clock" | Label text |
-| `format24Hour` | Boolean | `false` | 12h or 24h format |
-| `showSeconds` | Boolean | `true` | Show seconds |
-| `showDate` | Boolean | `true` | Show full date |
-| `backgroundColor1` | Text (Hex) | `#667eea` | Gradient start color |
-| `backgroundColor2` | Text (Hex) | `#764ba2` | Gradient end color |
-| `textColor` | Text (Hex) | `#ffffff` | Text color |
-
-**📝 Usage Example:**
-```javascript
-// Pega Constellation configuration
-{
-  "format24Hour": false,
-  "showSeconds": true,
-  "showDate": true,
-  "backgroundColor1": "#667eea",
-  "backgroundColor2": "#764ba2",
-  "textColor": "#ffffff"
-}
-```
 
 ---
 
