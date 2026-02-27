@@ -213,7 +213,7 @@ Once "Copy to Clipboard" is selected as the display control, configure the compo
 - **Button Position**: Choose "right" or "left"
 
 <div align="center">
-  <img src="docs/8.png" alt="Configure Component Properties" width="400"/>
+  <img src="docs/9.png" alt="Configure Component Properties" width="400"/>
 </div>
 
 ---
@@ -223,7 +223,7 @@ Once "Copy to Clipboard" is selected as the display control, configure the compo
 After saving, preview the case. The field will display as a **read-only text** with a **copy button** on the right side. Clicking the button copies the value to the clipboard.
 
 <div align="center">
-  <img src="docs/9.png" alt="Copy to Clipboard Preview" width="500"/>
+  <img src="docs/8.png" alt="Copy to Clipboard Preview" width="500"/>
 </div>
 
 ---
