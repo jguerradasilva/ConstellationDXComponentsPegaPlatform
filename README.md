@@ -99,16 +99,12 @@ A modern, fully customizable digital clock that displays time and date in real-t
 
 ---
 
-### 2. Copy to Clipboard Field (In Progress)
+### 2. Copy to Clipboard Field
 
-<div align="center">
-  <img src="docs/copy-to-clipboard-1.png" alt="Copy to Clipboard Component" width="400"/>
-</div>
-
-A read-only field component that displays text values with a copy-to-clipboard button. Perfect for displaying IDs, codes, emails, or any text that users need to copy frequently.
+A read-only field component that displays a property value with a one-click copy-to-clipboard button. Perfect for displaying IDs, codes, emails, or any text that users need to copy frequently.
 
 **🎯 Technical Specifications:**
-- **Type**: Field Component (Read-only)
+- **Type**: Field (Display as alternative control for Text fields)
 - **Library**: DXExtensions
 - **Framework**: React 17 + TypeScript
 - **API**: Modern Clipboard API
@@ -118,72 +114,99 @@ A read-only field component that displays text values with a copy-to-clipboard b
 - 📋 One-click copy to clipboard functionality
 - 🎨 Customizable button position (left/right)
 - 💬 Animated success/error tooltips
-- 🎯 Icon or text button options
 - 📱 Responsive design
 - ♿ Full accessibility support
 - ⚡ Browser-native clipboard API
-- 🔒 Secure clipboard access
+- 🔒 Read-only display with secure clipboard access
 
 **⚙️ Configurable Properties:**
 
 | Property | Type | Default | Description |
 |----------|------|---------|-------------|
-| `label` | Text | "Copy Field" | Field label |
-| `value` | Field Reference | - | Text value to display and copy |
-| `hideLabel` | Boolean | `false` | Hide the label |
+| `value` | Property Reference | - | Property to display and copy |
+| `label` | Text | "Copy to Clipboard" | Field label |
 | `buttonPosition` | Select | "right" | Button position (right/left) |
-| `showIcon` | Boolean | `true` | Show emoji icon or text |
-| `successMessage` | Text | "Copied!" | Success tooltip message |
-| `errorMessage` | Text | "Failed to copy" | Error tooltip message |
+| `readOnly` | Boolean | `true` | Read-only mode |
+| `disabled` | Boolean | `false` | Disable copy button |
 | `visibility` | Visibility | Visible | Control visibility |
 | `testId` | Text | - | Test automation ID |
 
-**🎨 Usage Examples:**
+---
 
-**Protocol Number:**
-```javascript
-{
-  "label": "Protocol ID",
-  "value": ".CaseID",
-  "buttonPosition": "right",
-  "showIcon": true,
-  "successMessage": "Protocol copied!"
-}
-```
+#### 📋 Step-by-Step: How to Use the Copy to Clipboard Component in App Studio
 
-**Email Address:**
-```javascript
-{
-  "label": "Customer Email",
-  "value": ".Customer.Email",
-  "buttonPosition": "left",
-  "showIcon": false,
-  "successMessage": "Email copied!"
-}
-```
+##### Step 1: Open the Case Type and Configure the View
 
-**CPF/Document:**
-```javascript
-{
-  "label": "CPF",
-  "value": ".Customer.CPF",
-  "buttonPosition": "right",
-  "showIcon": true,
-  "successMessage": "CPF copiado!"
-}
-```
+Open your Case Type in **App Studio** (e.g., "Incident"). Navigate to the **Workflow** tab and click **Configure view** on the step where you want to add the component.
 
-**🔌 Browser Compatibility:**
-- ✅ Chrome 66+
-- ✅ Firefox 63+
-- ✅ Safari 13.1+
-- ✅ Edge 79+
-- ⚠️ Requires HTTPS for clipboard access
+<div align="center">
+  <img src="docs/copy-to-clipboard-step1-case-lifecycle.png" alt="Case Type Lifecycle - Configure View" width="700"/>
+</div>
 
-**📱 Responsive Behavior:**
-- Desktop: Full layout with tooltips
-- Mobile: Optimized touch targets
-- All devices: Accessible keyboard navigation
+---
+
+##### Step 2: View the Current Fields
+
+In the view editor, you will see the current fields configured for that step (e.g., "Incident Type", "Incident SubType"). Click **+ Add** to add a new field.
+
+<div align="center">
+  <img src="docs/copy-to-clipboard-step2-view-fields.png" alt="View Fields" width="500"/>
+</div>
+
+---
+
+##### Step 3: Select or Create a Field
+
+From the field picker, choose an existing field or click **"Create new field"** at the bottom of the list. This field will hold the property value you want to display and copy.
+
+<div align="center">
+  <img src="docs/copy-to-clipboard-step3-field-picker.png" alt="Field Picker" width="400"/>
+</div>
+
+---
+
+##### Step 4: Create a New Text Field
+
+If creating a new field, enter a **Name** (e.g., "Value to copy to clipboard") and select **Type** as "Text (single line)". Click **Submit**.
+
+<div align="center">
+  <img src="docs/copy-to-clipboard-step4-add-field.png" alt="Add Field Dialog" width="400"/>
+</div>
+
+---
+
+##### Step 5: Change the Display Control
+
+After the field is added, click the **gear icon (⚙️)** to configure it. In the **"Display as"** dropdown, change from "Text Input (default)" to **"Copy to Clipboard"**.
+
+<div align="center">
+  <img src="docs/copy-to-clipboard-step5-display-as.png" alt="Display As - Copy to Clipboard" width="400"/>
+</div>
+
+---
+
+##### Step 6: Configure the Component Properties
+
+Once "Copy to Clipboard" is selected as the display control, configure the component properties:
+- **Value**: Select the property reference (e.g., "ID")
+- **Label**: Enter the label text (e.g., "ID")
+- **Button Position**: Choose "right" or "left"
+
+<div align="center">
+  <img src="docs/copy-to-clipboard-step6-configure.png" alt="Configure Component Properties" width="400"/>
+</div>
+
+---
+
+##### Step 7: Preview the Result
+
+After saving, preview the case. The field will display as a **read-only text** with a **copy button** on the right side. Clicking the button copies the value to the clipboard.
+
+<div align="center">
+  <img src="docs/copy-to-clipboard-step7-preview.png" alt="Copy to Clipboard Preview" width="500"/>
+</div>
+
+---
 
 **🎯 Use Cases:**
 - 📄 Protocol/Case IDs
@@ -195,11 +218,12 @@ A read-only field component that displays text values with a copy-to-clipboard b
 - 💳 Account numbers
 - 📞 Phone numbers
 
-**♿ Accessibility:**
-- Full keyboard navigation support
-- Screen reader compatible
-- High contrast tooltip messages
-- Proper ARIA labels and descriptions
+**🔌 Browser Compatibility:**
+- ✅ Chrome 66+
+- ✅ Firefox 63+
+- ✅ Safari 13.1+
+- ✅ Edge 79+
+- ⚠️ Requires HTTPS for clipboard access
 
 ---
 

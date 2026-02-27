@@ -8,7 +8,7 @@
         "sourceOfComponents": "Server",
         "devBuild": true,
         "serverType": "infinity",
-        "server": "https://dcnwdqbn.pegaacademy.net/prweb",
+        "server": "https://jwbjc2wj.pegaacademy.net/prweb",
         "clientId": "10095186356008396159",
         "clientSecret_comment": "Needed only when using 'passwordCreds' or 'clientCreds' grantType",
         "clientSecret": "",
@@ -25,8 +25,8 @@
         "password": "",
         "questions_comment": "useful for designating how frequently questions should be asked during npm run authenticate",
         "questions_askAlways": "",
-        "questions_askNever": "",
-        "questions_askOnce": "server,authService",
+        "questions_askNever": "server,authService,rulesetName,rulesetVersion",
+        "questions_askOnce": "",
         "questions_askedOnce": "server,authService"
     },
     "component": {

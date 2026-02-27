@@ -1,31 +1,24 @@
 {
   "name": "Sl_DXExtensions_CopyToClipboardField",
   "label": "Copy to Clipboard",
-  "description": "Text field with copy to clipboard button",
+  "description": "Copy to clipboard field",
   "organization": "Sl",
   "version": "1.0.0",
   "library": "DXExtensions",
   "allowedApplications": [],
   "componentKey": "Sl_DXExtensions_CopyToClipboardField",
-  "type": "Widget",
-  "subtype": ["PAGE","CASE"],
+  "type": "Field",
+  "subtype": "Text",
   "icon": "OneColumnPage.svg",
   "properties": [
     {
+      "name": "value",
+      "label": "Value",
+      "format": "PROPERTY"
+    },
+    {
       "name": "label",
       "label": "Label",
-      "format": "TEXT",
-      "defaultValue": ""
-    },
-    {
-      "name": "value",
-      "label": "Value (direct text)",
-      "format": "TEXT",
-      "defaultValue": ""
-    },
-    {
-      "name": "fieldReference",
-      "label": "Field reference",
       "format": "TEXT",
       "defaultValue": ""
     },
@@ -44,6 +37,12 @@
           "value": "Left"
         }
       ]
+    },
+    {
+      "name": "readOnly",
+      "label": "Read only",
+      "format": "BOOLEAN",
+      "defaultValue": true
     },
     {
       "name": "disabled",
@@ -73,9 +72,8 @@
   ],
   "defaultConfig": {
     "label": "Copy to Clipboard",
-    "value": "",
-    "fieldReference": "",
     "buttonPosition": "right",
+    "readOnly": true,
     "disabled": false
   }
 }

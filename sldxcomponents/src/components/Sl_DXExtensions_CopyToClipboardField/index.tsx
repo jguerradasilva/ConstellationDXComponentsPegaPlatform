@@ -1,4 +1,5 @@
 import { useState } from 'react';
+import { withConfiguration } from '@pega/cosmos-react-core';
 import type { PConnFieldProps } from './PConnProps';
 import {
   StyledCopyToClipboardWrapper,
@@ -12,27 +13,27 @@ import {
 interface CopyToClipboardProps extends PConnFieldProps {
   label?: string;
   value?: string;
-  fieldReference?: string;
   buttonPosition?: 'right' | 'left';
+  readOnly?: boolean;
   disabled?: boolean;
   testId?: string;
 }
 
-export default function CopyToClipboard(props: CopyToClipboardProps) {
+function CopyToClipboard(props: CopyToClipboardProps) {
   const {
     label = '',
     value = '',
-    fieldReference = '',
     buttonPosition = 'right',
+    readOnly = true,
     disabled = false,
     testId,
     getPConnect
   } = props;
 
-  // Get value from field reference if provided, otherwise use direct value
-  const displayValue = fieldReference && getPConnect 
-    ? getPConnect().getValue(fieldReference) || value
-    : value;
+  // Get the resolved value from PConnect (automatically resolves the property reference)
+  const pConn = getPConnect && getPConnect();
+  const resolvedValue = pConn ? pConn.resolveConfigProps(pConn.getConfigProps())?.value || value : value;
+  const displayValue = resolvedValue || value;
 
   const [showTooltip, setShowTooltip] = useState(false);
   const [tooltipMessage, setTooltipMessage] = useState('Copied!');
@@ -65,7 +66,7 @@ export default function CopyToClipboard(props: CopyToClipboardProps) {
   };
 
   return (
-    <StyledCopyToClipboardWrapper data-testid={testId}>
+    <StyledCopyToClipboardWrapper data-testid={testId} className={readOnly ? 'read-only' : ''}>
       {label && <StyledLabel>{label}</StyledLabel>}
       
       <StyledFieldContainer buttonPosition={buttonPosition}>
@@ -108,3 +109,5 @@ export default function CopyToClipboard(props: CopyToClipboardProps) {
     </StyledCopyToClipboardWrapper>
   );
 }
+
+export default withConfiguration(CopyToClipboard);
