@@ -135,57 +135,77 @@ A read-only field component that displays a property value with a one-click copy
 
 #### 📋 Step-by-Step: How to Use the Copy to Clipboard Component in App Studio
 
-##### Step 1: Open the Case Type and Configure the View
+##### Step 1: Open the Case Type and Navigate to Workflow
 
-Open your Case Type in **App Studio** (e.g., "Incident"). Navigate to the **Workflow** tab and click **Configure view** on the step where you want to add the component.
+Open your Case Type in **App Studio** (e.g., "Incident"). Navigate to the **Workflow** tab to see the case lifecycle.
 
 <div align="center">
-  <img src="docs/copy-to-clipboard-step1-case-lifecycle.png" alt="Case Type Lifecycle - Configure View" width="700"/>
+  <img src="docs/1.png" alt="Case Type Lifecycle" width="700"/>
 </div>
 
 ---
 
-##### Step 2: View the Current Fields
+##### Step 2: Configure the View
 
-In the view editor, you will see the current fields configured for that step (e.g., "Incident Type", "Incident SubType"). Click **+ Add** to add a new field.
+Click **Configure view** on the step where you want to add the Copy to Clipboard field.
 
 <div align="center">
-  <img src="docs/copy-to-clipboard-step2-view-fields.png" alt="View Fields" width="500"/>
+  <img src="docs/2.png" alt="Configure View" width="700"/>
 </div>
 
 ---
 
-##### Step 3: Select or Create a Field
+##### Step 3: View the Current Fields
 
-From the field picker, choose an existing field or click **"Create new field"** at the bottom of the list. This field will hold the property value you want to display and copy.
+In the view editor, you will see the current fields configured for that step. Click **+ Add** to add a new field.
 
 <div align="center">
-  <img src="docs/copy-to-clipboard-step3-field-picker.png" alt="Field Picker" width="400"/>
+  <img src="docs/3.png" alt="View Fields" width="500"/>
 </div>
 
 ---
 
-##### Step 4: Create a New Text Field
+##### Step 4: Select or Create a Field
+
+From the field picker, choose an existing field or click **"Create new field"** at the bottom. This field will hold the property value you want to display and copy.
+
+<div align="center">
+  <img src="docs/4.png" alt="Field Picker" width="400"/>
+</div>
+
+---
+
+##### Step 5: Create a New Text Field
 
 If creating a new field, enter a **Name** (e.g., "Value to copy to clipboard") and select **Type** as "Text (single line)". Click **Submit**.
 
 <div align="center">
-  <img src="docs/copy-to-clipboard-step4-add-field.png" alt="Add Field Dialog" width="400"/>
+  <img src="docs/5.png" alt="Add Field Dialog" width="400"/>
 </div>
 
 ---
 
-##### Step 5: Change the Display Control
+##### Step 6: Open the Field Configuration
 
-After the field is added, click the **gear icon (⚙️)** to configure it. In the **"Display as"** dropdown, change from "Text Input (default)" to **"Copy to Clipboard"**.
+After the field is added, click the **gear icon (⚙️)** to open the configuration panel for the field.
 
 <div align="center">
-  <img src="docs/copy-to-clipboard-step5-display-as.png" alt="Display As - Copy to Clipboard" width="400"/>
+  <img src="docs/6.png" alt="Field Configuration" width="400"/>
 </div>
 
 ---
 
-##### Step 6: Configure the Component Properties
+##### Step 7: Change the Display Control
+
+In the **"Display as"** dropdown, change from "Text Input (default)" to **"Copy to Clipboard"**.
+
+<div align="center">
+  <img src="docs/7.png" alt="Display As - Copy to Clipboard" width="400"/>
+</div>
+
+---
+
+##### Step 8: Configure the Component Properties
 
 Once "Copy to Clipboard" is selected as the display control, configure the component properties:
 - **Value**: Select the property reference (e.g., "ID")
@@ -193,17 +213,17 @@ Once "Copy to Clipboard" is selected as the display control, configure the compo
 - **Button Position**: Choose "right" or "left"
 
 <div align="center">
-  <img src="docs/copy-to-clipboard-step6-configure.png" alt="Configure Component Properties" width="400"/>
+  <img src="docs/8.png" alt="Configure Component Properties" width="400"/>
 </div>
 
 ---
 
-##### Step 7: Preview the Result
+##### Step 9: Preview the Result
 
 After saving, preview the case. The field will display as a **read-only text** with a **copy button** on the right side. Clicking the button copies the value to the clipboard.
 
 <div align="center">
-  <img src="docs/copy-to-clipboard-step7-preview.png" alt="Copy to Clipboard Preview" width="500"/>
+  <img src="docs/9.png" alt="Copy to Clipboard Preview" width="500"/>
 </div>
 
 ---
@@ -276,6 +296,7 @@ ConstellationDXComponentsPegaPlatform/
 │   └── 📄 tsconfig.json            # TypeScript configuration
 │
 ├── 📂 docs/                        # Documentation and assets
+│   ├── 1.png ~ 9.png              # Copy to Clipboard step-by-step screenshots
 │   ├── digital-clock-demo.png
 │   ├── digital-clock-configuration.png
 │   └── copy-to-clipboard-1.png
