@@ -945,6 +945,6 @@ This project is licensed under the license specified in the `LICENSE` file.
 
 ### ⭐ If this project was useful, consider giving it a star!
 
-**Version**: 1.0.0 | **Last Update**: December 2025
+**Version**: 1.0.0 | **Last Update**: Feb 2026
 
 </div>
